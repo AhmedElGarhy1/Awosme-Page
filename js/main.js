@@ -1,7 +1,31 @@
-// start header section
+// all intializing variables here
+
 const bars = document.querySelector(".bars");
 const header = document.querySelector(".header");
 const icons = document.querySelectorAll(".nav__bar li");
+const mega = document.querySelector(".mega-section");
+const other = document.getElementById("other");
+const links = document.querySelectorAll(".links li");
+let up = document.getElementById("scroll-to-top");
+const allSections = document.querySelectorAll("section");
+const moon = document.getElementById("dark");
+const artice = document.getElementById("article");
+const ourSkills = document.getElementById("our-skills");
+const stats = document.getElementById("stats");
+const sections = document.querySelectorAll("section:not(:first-child)");
+const statNums = document.querySelectorAll(".stats .box .number");
+const progressBars = document.querySelectorAll(".progress span");
+const day = document.getElementById("days");
+const hour = document.getElementById("hours");
+const minute = document.getElementById("minutes");
+const second = document.getElementById("seconds");
+const lis = document.querySelectorAll(".videos .info li");
+const MovSlider = document.querySelector(".videos .contaner .imgs");
+const images = document.querySelectorAll(".videos .contaner img");
+const virtual = document.querySelector(".videos .contaner .virtual");
+const articleContaner = document.getElementById("article-contaner");
+
+// start header section
 icons.forEach((icon) => {
   icon.addEventListener("click", () => {
     header.classList.remove("custom-phone-headding");
@@ -12,9 +36,6 @@ header.style.width = `${innerWidth}px`;
 // end header section
 
 // start mega section
-const mega = document.querySelector(".mega-section");
-const other = document.getElementById("other");
-const links = document.querySelectorAll(".links li");
 other.addEventListener("click", () => {
   if (other.clientWidth >= 100 && other.clientWidth <= 200)
     mega.classList.toggle("active-mega-section");
@@ -28,7 +49,6 @@ links.forEach((link) => {
 // end mega section
 
 //  start scroll to top
-let up = document.getElementById("scroll-to-top");
 up.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
@@ -47,9 +67,6 @@ window.addEventListener("scroll", () => {
 //  end scroll to top
 
 // start dark mode not completed (need some styles)
-const allSections = document.querySelectorAll("section");
-
-const moon = document.getElementById("dark");
 moon.addEventListener("click", () => {
   allSections.forEach((sec) => {
     sec.classList.toggle("dark-mode");
@@ -58,10 +75,6 @@ moon.addEventListener("click", () => {
 // end dark mode
 
 // start move effect of sections
-const artice = document.getElementById("article");
-const ourSkills = document.getElementById("our-skills");
-const stats = document.getElementById("stats");
-const sections = document.querySelectorAll("section:not(:first-child)");
 
 window.addEventListener("scroll", () => {
   if (innerWidth >= 768) {
@@ -81,7 +94,6 @@ window.addEventListener("scroll", () => {
 // start phone slider articel
 let pos = 0;
 let isSmall = false;
-const articleContaner = document.getElementById("article-contaner");
 let rightArrow = document.createElement("i");
 let leftArrow = document.createElement("i");
 styleSliderArrows();
@@ -90,16 +102,14 @@ smallSlider();
 
 // start skills seciton
 
-const progressBars = document.querySelectorAll(".progress span");
 moveSkillSection();
 // end skills seciton
 
-// start event time section
+// start stats section
 
-const day = document.getElementById("days");
-const hour = document.getElementById("hours");
-const minute = document.getElementById("minutes");
-const second = document.getElementById("seconds");
+// end stats section
+
+// start event time section
 
 let eventDate = new Date("June 26, 2022 8:45:55").getTime();
 
@@ -108,6 +118,26 @@ let handler = setInterval(coolDown, 1000);
 
 //                                defiend it below
 window.addEventListener("resize", dealingWithRisizing);
+
+// start videos section
+
+for (let i = 0; i < lis.length; i++) {
+  lis[i].addEventListener("click", () => {
+    let num = i * -100;
+    console.log(num);
+    moveSlider(num);
+  });
+}
+
+let MovPos = 0;
+
+images.forEach((image) => {
+  image.style.width = `${virtual.clientWidth}px`;
+});
+
+go();
+
+// start videos section
 
 function openList() {
   header.classList.toggle("custom-phone-headding");
@@ -199,27 +229,6 @@ function coolDown() {
 }
 // --------------------------------------
 
-// videos section
-
-const first = document.getElementById("first");
-const secondE = document.getElementById("second");
-const third = document.getElementById("third");
-const forth = document.getElementById("forth");
-const fifth = document.getElementById("fifth");
-const sixth = document.getElementById("sixth");
-const seventh = document.getElementById("seventh");
-
-const lis = document.querySelectorAll(".videos .info li");
-
-const MovSlider = document.querySelector(".videos .contaner .imgs");
-const images = document.querySelectorAll(".videos .contaner img");
-const virtual = document.querySelector(".videos .contaner .virtual");
-let MovPos = 0;
-
-images.forEach((image) => {
-  image.style.width = `${virtual.clientWidth}px`;
-});
-
 let hand;
 function removeColor(num) {
   lis.forEach((li) => {
@@ -240,7 +249,13 @@ function go() {
   }, 3000);
   removeColor(MovPos);
 }
-go();
+
+function moveSlider(num) {
+  MovSlider.style.left = `${num}%`;
+  clearInterval(hand);
+  MovPos = num;
+  go();
+}
 
 // lis.forEach((li) => {
 //   li.addEventListener("click", (pressd) => {
@@ -253,52 +268,8 @@ go();
 //   });
 // });
 
-first.addEventListener("click", () => {
-  MovSlider.style.left = `0%`;
-  clearInterval(hand);
-  MovPos = 0;
-  go();
-});
-secondE.addEventListener("click", () => {
-  MovSlider.style.left = `-100%`;
-  clearInterval(hand);
-  MovPos = -100;
-  go();
-});
-third.addEventListener("click", () => {
-  MovSlider.style.left = `-200%`;
-  clearInterval(hand);
-  MovPos = -200;
-  go();
-});
-forth.addEventListener("click", () => {
-  MovSlider.style.left = `-300%`;
-  clearInterval(hand);
-  MovPos = -300;
-  go();
-});
-fifth.addEventListener("click", () => {
-  MovSlider.style.left = `-400%`;
-  clearInterval(hand);
-  MovPos = -400;
-  go();
-});
-sixth.addEventListener("click", () => {
-  MovSlider.style.left = `-500%`;
-  clearInterval(hand);
-  MovPos = -500;
-  go();
-});
-seventh.addEventListener("click", () => {
-  MovSlider.style.left = "-600%";
-  clearInterval(hand);
-  MovPos = -600;
-  go();
-});
+// start stats section
 
-// stats section
-
-const statNums = document.querySelectorAll(".stats .box .number");
 let isThere = false;
 function moveStatsSection() {
   if (scrollY >= stats.offsetTop - innerHeight + 200) {
