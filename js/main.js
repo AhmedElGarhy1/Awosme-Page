@@ -25,6 +25,7 @@ const images = document.querySelectorAll(".videos .contaner img");
 const virtual = document.querySelector(".videos .contaner .virtual");
 const articleContaner = document.getElementById("article-contaner");
 
+let movieSliderHandler;
 // start header section
 icons.forEach((icon) => {
   icon.addEventListener("click", () => {
@@ -104,10 +105,6 @@ smallSlider();
 
 moveSkillSection();
 // end skills seciton
-
-// start stats section
-
-// end stats section
 
 // start event time section
 
@@ -229,7 +226,6 @@ function coolDown() {
 }
 // --------------------------------------
 
-let hand;
 function removeColor(num) {
   lis.forEach((li) => {
     li.classList.remove("clicked-slider");
@@ -241,7 +237,7 @@ function removeColor(num) {
   lis[num].classList.add("clicked-slider");
 }
 function go() {
-  hand = setInterval(() => {
+  movieSliderHandler = setInterval(() => {
     MovPos -= 100;
     if (MovPos < -600) MovPos = 0;
     MovSlider.style.left = `${MovPos}%`;
@@ -252,7 +248,7 @@ function go() {
 
 function moveSlider(num) {
   MovSlider.style.left = `${num}%`;
-  clearInterval(hand);
+  clearInterval(movieSliderHandler);
   MovPos = num;
   go();
 }

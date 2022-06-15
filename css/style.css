@@ -330,7 +330,6 @@ ul {
 
 /* ------------------start of mega section-------------------- */
 .active-mega-section {
-  margin-top: 0 !important;
   opacity: 1 !important;
   z-index: 300 !important;
 }
@@ -338,7 +337,7 @@ ul {
   position: fixed;
   background-color: white;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 72px;
   opacity: 0;
   transition: var(--transition);
   z-index: -2;
