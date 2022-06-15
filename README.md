@@ -1,6 +1,6 @@
-## Awosme-Page
+# Awosme-Page
 
 
-# full of animation and grids
+## full of animation and grids
 
-# have functionality made from scratch
+## have functionality made from scratch
