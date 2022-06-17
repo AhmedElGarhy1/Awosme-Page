@@ -2,7 +2,7 @@ const stats = document.getElementById("stats");
 const statNums = document.querySelectorAll(".stats .box .number");
 
 let isThere = false;
-moveStatsSection();
+window.addEventListener("scroll", moveStatNumbers);
 // start stats section
 
 function moveStatsSection() {
