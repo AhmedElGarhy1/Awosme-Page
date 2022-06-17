@@ -5,7 +5,7 @@ let isThere = false;
 window.addEventListener("scroll", moveStatNumbers);
 // start stats section
 
-function moveStatsSection() {
+function moveStatNumbers() {
   if (scrollY >= stats.offsetTop - innerHeight + 150) {
     if (!isThere) {
       statNums.forEach((ele) => rise(ele));
