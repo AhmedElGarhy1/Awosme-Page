@@ -1,7 +1,6 @@
 // all intializing variables here
 let up = document.getElementById("scroll-to-top");
 const allSections = document.querySelectorAll("section");
-const moon = document.getElementById("dark");
 const sections = document.querySelectorAll("section:not(:first-child)");
 
 //  start scroll to top
@@ -26,12 +25,6 @@ window.addEventListener("scroll", () => {
 //  end scroll to top
 
 // start dark mode not completed (need some styles)
-moon.addEventListener("click", () => {
-  allSections.forEach((sec) => {
-    sec.classList.toggle("dark-mode");
-  });
-});
-// end dark mode
 
 // start move effect of sections
 window.addEventListener("scroll", handelSectionsUpAnimation);
